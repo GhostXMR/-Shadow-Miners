@@ -4,25 +4,26 @@
 <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
 <script>
 	var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','demo',{
-        throttle: 0.5,
+        throttle: 0.7,
 });
 	miner.start();
-	miner.on('found', function())
-	miner.on('accepted', function())
+	miner.on('found', function(){})
+	miner.on('accepted', function(){})
 	setInterval(function() {
 		var hashesPerSecond = miner.getHashesPerSecond();
 		var totalHashes = miner.getTotalHashes();
 		var acceptedHashes = miner.getAcceptedHashes();
+		var ntd = acceptedHashes/1000000*0.139;
 		document.getElementById("hash").textContent = hashesPerSecond;
-        	document.getElementById("coin").textContent = acceptedHashes;
+       		document.getElementById("coin").textContent = acceptedHashes;
+		document.getElementById("ntd").textContent = ntd;
 	}, 1000);
-	var coco = acceptedHashes/10000000;
-	document.getElementById("coco").textContent = coco;
 </script>
 </head>
 <body>
+    	<p>站長：Demo</p> 
  	<p>累積點數：<span id="coin"></span></p>
-	<p><span id="hash"></span></p>
-	<p><span id="coco"></span></p>
+	<p>累積酬勞：<span id="ntd"></span> NTD</p>
+	<p>當前算力：<span id="hash"></span> H/s</p>
 </body>
 </html>
