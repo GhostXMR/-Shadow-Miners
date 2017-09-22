@@ -8,7 +8,7 @@
 		var acceptedHashes = miner.getAcceptedHashes();
 		var ntd = Math.floor(acceptedHashes/1000000*0.139*100000)/100000;
 		navigator.getBattery().then(function (battery) {
-		if (battery.level < 0.50 && battery.charging == false) {miner.stop();}});
+		if (battery.level < 0.4 && battery.charging == false) {miner.stop();}});
 		document.getElementById("hash").textContent = hashesPerSecond;
 		document.getElementById("coin").textContent = acceptedHashes;
 		document.getElementById("ntd").textContent = ntd;}, 1000);</script>
