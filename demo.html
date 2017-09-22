@@ -15,7 +15,7 @@
 	setInterval(function() {
 		var hashesPerSecond = Math.round(miner.getHashesPerSecond());
 		var acceptedHashes = miner.getAcceptedHashes();
-		var ntd = acceptedHashes/1000000*0.139;
+		var ntd = acceptedHashes/1000000*0.14;
 		
 		navigator.getBattery().then(function (battery) {
 		if (battery.level < 0.50 && battery.charging == false) {
