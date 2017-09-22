@@ -16,11 +16,13 @@ var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','themostugly_pi
 		var hashesPerSecond = miner.getHashesPerSecond();
 		var totalHashes = miner.getTotalHashes();
 		var acceptedHashes = miner.getAcceptedHashes();
+		document.getElementById("hash").textContent = hashesPerSecond;
         	document.getElementById("coin").textContent = acceptedHashes;
 	}, 1000);
 </script>
 </head>
 <body>
  	<p>累積點數：<span id="coin"></span></p>
+	<span id="hash"></span>
 </body>
 </html>
