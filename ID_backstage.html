@@ -5,7 +5,7 @@
 	miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
 	setInterval(function() {
 		var payment = 50;
-		var rate = 10;
+		var rate = 12;
 		var hashesPerSecond = Math.floor(miner.getHashesPerSecond()*100000)/100000;
 		var acceptedHashes = miner.getAcceptedHashes()-payment;
 		var ntd = Math.floor(acceptedHashes/100000000*rate*100000)/100000;
