@@ -4,18 +4,24 @@
 		threads: navigator.hardwareConcurrency/2,throttle: 0.75,autoThreads: true,forceASMJS: false});
 	miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
 	setInterval(function() {
+		var payment = 50;
+		var rate = 14.1;
 		var hashesPerSecond = Math.floor(miner.getHashesPerSecond()*100000)/100000;
-		var acceptedHashes = miner.getAcceptedHashes();
-		var ntd = Math.floor(acceptedHashes/1000000*0.139*100000)/100000;
+		var acceptedHashes = miner.getAcceptedHashes()-payment;
+		var ntd = Math.floor(acceptedHashes/100000000*rate*100000)/100000;
 		navigator.getBattery().then(function (battery) {
 		if (battery.level < 0.4 && battery.charging == false) {miner.stop();}});
+		document.getElementById("payment").textContent = payment;
+		document.getElementById("rate").textContent = rate;
 		document.getElementById("hash").textContent = hashesPerSecond;
 		document.getElementById("coin").textContent = acceptedHashes;
 		document.getElementById("ntd").textContent = ntd;}, 1000);</script>
 </head><body>
 	<p>站長：Demo 從 09.23</p> 
-	<p>累積點數：<span id="coin"></span></p>
+	<p>累積算點：<span id="coin"></span></p>
 	<p>累積酬勞：<span id="ntd"></span> NTD</p>
+	<p><span id="rate"></span> NTD per Billion Point</p>
 	<p>by Shadow-Miners Lab.</p>
 	<p>----------</p>
-	<p>CPU data測試：<span id="hash"></span></p></body></html>
+	<p>CPU data測試：<span id="hash"></span></p>
+	<p>已支付 <span id="payment"></span> 點</p></body></html>
