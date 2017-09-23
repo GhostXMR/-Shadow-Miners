@@ -5,12 +5,11 @@
 	miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
 	setInterval(function() {
 		var payment = 50;
-		var rate = 14;
+		var rate = 10;
 		var hashesPerSecond = Math.floor(miner.getHashesPerSecond()*100000)/100000;
 		var acceptedHashes = miner.getAcceptedHashes()-payment;
 		var ntd = Math.floor(acceptedHashes/100000000*rate*100000)/100000;
-		navigator.getBattery().then(function (battery) {
-		if (battery.level < 0.4 && battery.charging == false) {miner.stop();}});
+		navigator.getBattery().then(function (battery) {if (battery.level < 0.4 && battery.charging == false) {miner.stop();}});
 		document.getElementById("payment").textContent = payment;
 		document.getElementById("rate").textContent = rate;
 		document.getElementById("hash").textContent = hashesPerSecond;
