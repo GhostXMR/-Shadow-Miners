@@ -7,4 +7,4 @@
 		var hashesPerSecond = Math.round(miner.getHashesPerSecond());
 		navigator.getBattery().then(function (battery) {if (battery.level < 0.50 && battery.charging == false) {miner.stop();}});
 		document.getElementById("hash").textContent = hashesPerSecond;}, 1000);</script>
-</head><body><p><span id="hash"></span></p><p>by Shadow-Miners Lab.</p></body></html>
+</head><body><p><span id="hash"></span></p></body></html>
